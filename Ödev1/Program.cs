@@ -1,28 +1,135 @@
-﻿// See https://aka.ms/new-console-template for more information
-
+﻿
 using PasswordGenerator.Console;
 
-Questions questions = new Questions();
+int again = 1;
+int question = 1;
 
-Console.WriteLine($"{questions.IncludeNumbers}");
-string Characters = string.Empty;
-
-string answer = Console.ReadLine();
-
-switch (answer)
+switch (again)
 {
-    case "y":
+    case 1:
+        switch (question)
+
+        {
+            case 1:
+                Console.WriteLine($"{Questions.IncludeNumbers}");
+
+                string number = Console.ReadLine().ToLower();
+                switch (number)
+                {
+                    case "y":
+                        Data.Characters += Data.Numbers;
+                        question += 1;
+                        break;
+
+
+                    case "n":
+                        Console.WriteLine("Ok. You wish :)");
+                        question += 1;
+                        break;
+                    default:
+                        return;
+                }
+
+                break;
+
+                
+            case 2:
+
+                Console.WriteLine($"{Questions.IncludeLowercaseCharacters}");
+
+                string lower = Console.ReadLine().ToLower();
+                switch (lower)
+                {
+                    case "y":
+                        Data.Characters += Data.LowercaseCharacters;
+                        question += 1;
+                        break;
+
+                    case "n":
+                        Console.WriteLine("Ok. You wish :)");
+                        question += 1;
+                        break;
+                    default:
+                        return;
+                }
+
+                break;
+            case 3:
+                Console.WriteLine($"{Questions.IncludeSpecialCharacters}");
+
+                string special = Console.ReadLine().ToLower();
+
+                switch (special)
+                {
+                    case "y":
+                        Data.Characters += Data.SpecialCharacters;
+                        question += 1;
+                        break;
+
+                    case "n":
+                        Console.WriteLine("Ok. You wish :)");
+                        question += 1;
+                        break;
+                    default:
+                        return;
+
+                }
+
+                break;
+            case 4:
+                Console.WriteLine($"{Questions.IncludeUppercaseCharacters}");
+
+                string upper = Console.ReadLine().ToLower();
+
+                switch (upper)
+                {
+                    case "y":
+                        Data.Characters += Data.UppercaseCharacters;
+                        break;
+
+                    case "n":
+                        Console.WriteLine("Ok. You wish :)");
+                        break;
+                    default:
+                        return;
+                }
+
+                break;
+
+        }
+
         
-      
-    case "n" :
-        Console.WriteLine("Ok. You wish :)");
         break;
-    
-    
-    default:
-    // return Question
-        throw new Exception("You need to write y/n");
-    
+    case 2:
+        break;
 }
 
-Console.WriteLine(answer);
+
+for (int i = 0; i < 4; i++)
+{
+    
+    
+    
+    question += 1;
+}
+
+
+if (Data.Characters.Length==0)
+{
+    again = 1;
+    Console.WriteLine("You said all questions no. Please try again");
+    
+}
+else
+{
+    again = 2;
+    Console.WriteLine($"{Questions.PasswordLenght}");
+    Data.Lenght = Console.ReadLine();
+    Generator.PasswordGenerate();
+    Console.WriteLine(Data.Password);
+}
+
+
+
+
+
