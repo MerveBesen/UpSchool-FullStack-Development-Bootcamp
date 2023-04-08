@@ -21,7 +21,7 @@ public class AddressHardDeleteCommandHandler:IRequestHandler<AddressHardDeleteCo
 
         _applicationDbContext.Addresses.Remove(address);
 
-        await _applicationDbContext.SaveChangeAsync(cancellationToken);
+        await _applicationDbContext.SaveChangesAsync(cancellationToken);
 
         return new Response<int>($"The address named \"{address.Name}\" was successfully deleted.", address.Id);
 

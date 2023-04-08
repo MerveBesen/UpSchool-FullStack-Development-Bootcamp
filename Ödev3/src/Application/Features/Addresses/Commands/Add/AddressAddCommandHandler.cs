@@ -1,4 +1,5 @@
 using Application.Common.Interfaces;
+using Application.Common.Models.Address;
 using Domain.Common;
 using Domain.Entities;
 using MediatR;
@@ -30,10 +31,11 @@ public class AddressAddCommandHandler:IRequestHandler<AddressAddCommand,Response
             CreatedOn = DateTimeOffset.Now,
             CreatedByUserId = request.UserId,
             IsDeleted = false,
+            AddressType = AddressTypeDto.ConvertToAddressType(request.AddressTypeName.ToLower()),
         };
         await _applicationDbContext.Addresses.AddAsync(address, cancellationToken);
 
-        await _applicationDbContext.SaveChangeAsync(cancellationToken);     //save changes çalışmadan hi biri db ye gitmez.
+        await _applicationDbContext.SaveChangesAsync(cancellationToken);     //save changes çalışmadan hi biri db ye gitmez.
 
         return new Response<int>($"The new address named \"{address.Name}\" was successfully added.",address.Id);
 

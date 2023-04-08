@@ -20,11 +20,11 @@ public class AddressDeleteCommandHandler:IRequestHandler<AddressDeleteCommand,Re
     {
         var address = _applicationDbContext.Addresses.FirstOrDefault(x => x.Name == request.Name);
         
-        address.CreatedOn = null;
+        address.CreatedOn = DateTimeOffset.Now;
         address.CreatedByUserId = null;
         address.IsDeleted = true;
 
-        await _applicationDbContext.SaveChangeAsync(cancellationToken);     //save changes çalışmadan hi biri db ye gitmez.
+        await _applicationDbContext.SaveChangesAsync(cancellationToken);     //save changes çalışmadan hi biri db ye gitmez.
 
         return new Response<int>($"The address named \"{address.Name}\" was successfully moved deleted file.",address.Id);
 

@@ -1,4 +1,5 @@
 using Application.Common.Interfaces;
+using Application.Common.Models.Address;
 using Domain.Common;
 using Domain.Entities;
 using MediatR;
@@ -30,8 +31,9 @@ public class AddressUpdateCommandHandler:IRequestHandler<AddressUpdateCommand,Re
         address.CreatedOn = DateTimeOffset.Now;
         address.CreatedByUserId = request.UserId;
         address.IsDeleted = false;
+        address.AddressType = AddressTypeDto.ConvertToAddressType(request.AddressTypeName.ToLower());
         
-        await _applicationDbContext.SaveChangeAsync(cancellationToken);
+        await _applicationDbContext.SaveChangesAsync(cancellationToken);
         
         return new Response<int>($"The address named \"{address.Name}\" was successfully updated.",address.Id);
 

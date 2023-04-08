@@ -1,10 +1,11 @@
-namespace Domain.Entities;
-
-public class NoteCategory
+﻿namespace Domain.Entities
 {
-    public Guid NoteId { get; set; }
-    public Note Note { get; set; }
+    public class NoteCategory
+    {
+        public Guid NoteId { get; set; }
+        public Note Note { get; set; }
 
-    public Guid CategoryId { get; set; }
-    public Category Category { get; set; }
+        public Guid CategoryId { get; set; }
+        public Category Category { get; set; }
+    }
 }

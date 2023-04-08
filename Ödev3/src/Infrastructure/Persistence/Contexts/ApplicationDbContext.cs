@@ -1,21 +1,41 @@
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using Domain.Identity;
 
-namespace Infrastructure.Persistence.Contexts;
-
-public class ApplicationDbContext : DbContext,IApplicationDbContext
+namespace Infrastructure.Persistence.Contexts
 {
-    private IApplicationDbContext _applicationDbContextImplementation;
-    public DbSet<Account> Accounts { get; set; }
-    public DbSet<Country> Countries { get; set; }
-    public DbSet<City> Cities { get; set; }
-    
-    public DbSet<Address> Addresses { get; set; }
-    
-    public DbSet<Note> Notes { get; set; }
-    public Task<int> SaveChangeAsync(CancellationToken cancellationToken)
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
-        throw new NotImplementedException();
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
+        {
+            
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            // Configurations
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            // Ignores
+            modelBuilder.Ignore<User>();
+            modelBuilder.Ignore<Role>();
+            modelBuilder.Ignore<UserRole>();
+            modelBuilder.Ignore<RoleClaim>();
+            modelBuilder.Ignore<UserToken>();
+            modelBuilder.Ignore<UserClaim>();
+            modelBuilder.Ignore<UserLogin>();
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
+
 }
