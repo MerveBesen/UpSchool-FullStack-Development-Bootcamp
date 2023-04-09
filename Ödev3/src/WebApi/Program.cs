@@ -1,12 +1,20 @@
+using System.Text;
 using Application;
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add<ValidationFilter>();
+});
+
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;
