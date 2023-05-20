@@ -1,0 +1,17 @@
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/bin/Debug/net7.0/UpSchool.Persistence.deps.json
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/bin/Debug/net7.0/UpSchool.Persistence.runtimeconfig.json
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/bin/Debug/net7.0/UpSchool.Persistence.dll
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/bin/Debug/net7.0/UpSchool.Persistence.pdb
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/bin/Debug/net7.0/UpSchool.Domain.dll
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/bin/Debug/net7.0/UpSchool.Domain.pdb
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.csproj.AssemblyReference.cache
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.AssemblyInfoInputs.cache
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.AssemblyInfo.cs
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.csproj.CoreCompileInputs.cache
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.csproj.CopyComplete
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.dll
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/refint/UpSchool.Persistence.dll
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.pdb
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/UpSchool.Persistence.genruntimeconfig.cache
+/Users/mervebesen/Desktop/C#/UpSchool/UpSchool.Persistence/obj/Debug/net7.0/ref/UpSchool.Persistence.dll

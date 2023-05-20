@@ -1,0 +1,14 @@
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/bin/Debug/net7.0/UpSchool.Domain.deps.json
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/bin/Debug/net7.0/UpSchool.Domain.dll
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/bin/Debug/net7.0/UpSchool.Domain.pdb
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/UpSchool.Domain.csproj.AssemblyReference.cache
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/UpSchool.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/UpSchool.Domain.AssemblyInfoInputs.cache
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/UpSchool.Domain.AssemblyInfo.cs
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/UpSchool.Domain.csproj.CoreCompileInputs.cache
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/UpSchool.Domain.dll
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/refint/UpSchool.Domain.dll
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/UpSchool.Domain.pdb
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/ref/UpSchool.Domain.dll
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/bin/Debug/net7.0/UpSchool.Domain.runtimeconfig.json
+/Users/mervebesen/Desktop/C#/UpSchool/src/UpSchool.Domain/obj/Debug/net7.0/UpSchool.Domain.genruntimeconfig.cache
