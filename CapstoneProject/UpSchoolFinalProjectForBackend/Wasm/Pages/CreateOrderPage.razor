@@ -1,0 +1,130 @@
+@page "/CreateOrderPage"
+@using Domain.Dtos
+@using Domain.Enums
+@inject HttpClient HttpClient
+@inject IJSRuntime JSRuntime
+@using Microsoft.AspNetCore.Components;
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create Order Page</PageTitle>
+
+<h1>Create Order Page</h1>
+
+<div class="card-body">
+    <EditForm Model="@addDto" OnValidSubmit="@AddOrder">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <InputText class="form-control" id="name" @bind-Value="@addDto.Name"/>
+            <ValidationMessage For="@(() => addDto.Name)"/>
+        </div>
+
+        <div class="mb-3">
+            <label for="productAmount" class="form-label">Product Amount</label>
+            <InputNumber class="form-control" id="productAmount" @bind-Value="@addDto.ProductAmount"/>
+            <ValidationMessage For="@(() => addDto.ProductAmount)"/>
+        </div>
+        
+        <div class="mb-3">
+            <label for="productCrawlType" class="form-label">Product Crawl Type</label>
+            <select class="form-control" id="productCrawlType" @onchange="eventArgs => HandleDropdownChange(eventArgs.Value.ToString())" bind="@addDto.ProductCrawlType">
+                <option value="all" >All</option>
+                <option value="ondiscount">On Discount</option>
+                <option value="nondiscount">Non Discount</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <input type="radio" checked="" />
+            SMS Gönder
+            
+            <br/>
+
+            <input type="radio" />
+            E-posta Gönder
+            
+        </div>
+
+
+        <div class="mb-3 d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary" @onclick="AddOrder">Add</button>
+            <button type="button" class="btn btn-secondary" @onclick="@GoLiveLog">Go Live</button>
+            <button type="button" class="btn btn-danger" @onclick="@OnCancel">Cancel</button>
+        </div>
+        
+        
+    </EditForm>
+</div>
+
+@code {
+    
+    [Parameter]
+    public string ConnectionId { get; set; }
+    
+    private OrderAddDto addDto = new OrderAddDto();
+    
+    private void OnCancel()
+    {
+        addDto = new OrderAddDto();
+    }
+    
+    private async Task AddOrder()
+    {
+        addDto.ConnectionId = ConnectionId;
+        
+        var response = await HttpClient.PostAsJsonAsync("Orders", addDto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var orderDto = await response.Content.ReadFromJsonAsync<OrderDto>();
+            
+            Console.WriteLine("Order added successfully.");
+            
+            return;
+        }
+
+        addDto = new OrderAddDto();
+    }
+    
+
+    private void GoLiveLog()
+    {
+        NavigationManager.NavigateTo("/CrawlerLiveLog");
+    }
+   
+
+      private void HandleDropdownChange(string selectedValue)
+      {
+          string[] dropdownValues = { "all", "ondiscount", "nondiscount" };
+
+          foreach (string value in dropdownValues)
+          {
+              if (value != selectedValue)
+              {
+                  addDto.ProductCrawlType = ConvertToProductCrawlType(selectedValue);
+              }
+          }
+      }
+    
+
+      public static ProductCrawlType ConvertToProductCrawlType(string productCrawlTypeName)
+      {
+          switch (productCrawlTypeName)
+          {
+              case "all":
+                  return ProductCrawlType.All;
+
+              case "ondiscount":
+                  return ProductCrawlType.OnDiscount;
+
+              case "nondiscount":
+                  return ProductCrawlType.NonDiscount;
+
+              default:
+                  throw new Exception("Product crawl type couldn't be identified.");
+          }
+      }
+
+}
